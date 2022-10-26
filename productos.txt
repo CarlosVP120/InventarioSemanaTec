@@ -1,0 +1,11 @@
+A1,Pluma,5,40
+N6,Mouse,450,25
+G4,Audifonos,2300,20
+R4,Consola,6000,30
+F5,Tableta,5000,50
+J7,Teclado,2600,49
+S3,Cargador,500,90
+D2,HDMI,250,48
+C5,USB,180,20
+V6,Luces,230,40
+B7,Funda,80,30
