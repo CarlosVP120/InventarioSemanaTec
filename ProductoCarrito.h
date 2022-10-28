@@ -21,6 +21,8 @@ class ProductoCarrito{
         ProductoCarrito(string id, string nombre, double precio, int cant);
         void setCantidad(int cantidad);
         int getCantidad();
+        string getNombre();
+        int getPrecio();
         void aumentaCantidad(int cantidad);
         string getId();
         void mostrar();

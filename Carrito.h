@@ -8,16 +8,17 @@ Definición de la clase Carrito*/
 #define CARRITO_H
 #include <string>
 #include "ProductoCarrito.h"
+#include "Usuario.h"    
 
 using namespace std;
 
 class Carrito{
     private:
-        string cliente;
-        ProductoCarrito productos[10];
+        Usuario cliente;
+        ProductoCarrito productos[100];
         int size;
     public:
-        Carrito();
+        Carrito(Usuario user);
         void setCliente(string nomUsuario);
         int getSize();
         void agregarProducto(ProductoCarrito prodCarrito);
@@ -25,7 +26,10 @@ class Carrito{
         bool verificaProductoRepetido(string id);
         bool verificaIdExistencia(string id, int cant, int existencia, int indicador);
         string consultaIdProducto(int indice);
+        string consultaNombreProducto(int indice);
         int consultaCantProducto(int indice);
+        int consultaPrecioProducto(int indice);
+        ProductoCarrito getProducto(int indice);
         void vaciarCarrito();
         double total();
         void eliminarProducto(string id);

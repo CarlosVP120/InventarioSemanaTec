@@ -54,7 +54,11 @@ int ProductoAlmacen::getExistencia(){
 Sin parámetros
 Sin valor de retorno*/
 void ProductoAlmacen::mostrar(){
-    cout << this->id << "," << this->nombre << "," << this->precio << "," << this->existencia << endl;
+    cout << "---------------------------" <<endl;
+    cout << "Producto: " << this->nombre << endl;
+    cout << "Precio: $"<< this->precio << endl;
+    cout << "ID: " << this->id << endl;
+    cout << "Existencia: " << this->existencia << endl;
 }
 
 /*Método que verifica si el id que se esta pasando coincide con el id del producto almacén
@@ -68,6 +72,10 @@ bool ProductoAlmacen::verificaId(string id){
     else{
         return false;
     }
+}
+
+string ProductoAlmacen::getId(){
+    return this->id;
 }
 
 /*Método que verifica si la cantidad ingresada no sobrepasa la existencia del producto en almacén

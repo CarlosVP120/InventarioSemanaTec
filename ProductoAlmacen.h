@@ -22,6 +22,7 @@ class ProductoAlmacen{
         string getNombre();
         double getPrecio();
         int getExistencia();
+        string getId();
         void mostrar();
         bool verificaId(string id);
         bool verificaExist(int cant);

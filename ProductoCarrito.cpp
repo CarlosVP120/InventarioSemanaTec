@@ -39,6 +39,14 @@ void ProductoCarrito::setCantidad(int cantidad){
     this->cantidad = cantidad;
 }
 
+string ProductoCarrito::getNombre(){
+    return this->nombre;
+}
+
+int ProductoCarrito::getPrecio(){
+    return this->precio;
+}
+
 /*Método getter que consulta la propiedad cantidad del producto carrito
 Sin parámetros
 Valor de retorno: cantidad (número de artículos) del producto carrito*/
@@ -65,7 +73,7 @@ string ProductoCarrito::getId(){
 Sin parámetros
 Sin valor de retorno*/
 void ProductoCarrito::mostrar(){
-    cout << this->id << "," << this->nombre << "," << this->precio << "," << this->cantidad << endl;
+    cout << "| " << this->id << " | " << this->nombre << " | " << this->precio << " |  " << this->cantidad << "  | ";
 }
 
 /*Método que verifica si el id que se está pasando coincide con el id del producto carrito
@@ -95,7 +103,7 @@ bool ProductoCarrito::verificarCant(int cantidad, int existencia, int indicador)
         }
         else {
             cout << "Su pedido sobrepasa la cantidad en almacen" << endl;
-            cout << "-------------------"<<endl;
+            cout << "- - - - - - - - - - - - -"<<endl;
             revision = false;
         }
     }
@@ -105,7 +113,7 @@ bool ProductoCarrito::verificarCant(int cantidad, int existencia, int indicador)
         }
         else {
             cout << "La nueva cantidad sobrepasa la cantidad en almacen" << endl;
-            cout << "-------------------"<<endl;
+            cout << "- - - - - - - - - - - - -"<<endl;
             revision = false;
         }
     }

@@ -20,6 +20,9 @@ class Almacen{
         bool editarCarrito(string id, int cant, Carrito &carrito1);
         void descuentaArticulo(string id, int cantDesc);
         void pagarCarrito(Carrito &carrito1);
+        void imprimeVertical();
+        int buscarIndice(string id);
+        ProductoAlmacen getProducto(int indice);
 };
 
 #endif

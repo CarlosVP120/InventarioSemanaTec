@@ -12,18 +12,16 @@ Implementación de los métodos de la clase Carrito*/
 using namespace std;
 
 /*Constructor default del almacén con información vacía*/
-Carrito::Carrito(){
-    this->cliente = "";
-    this->productos[10];
-    this->size = 0;
+Carrito::Carrito(Usuario _user){
+    this->cliente = _user;
 }
 
 /*Metodo setter que le asigna a la propiedad cliente del carrito el nombre del usuario
 Parámetros:
 nomUsuario: nombre del usuario
 Sin valor de retorno*/
-void Carrito::setCliente(string nomUsuario){
-    this->cliente = nomUsuario;
+void Carrito::setCliente(string _nomUsuario){
+    this->cliente.setNombre(_nomUsuario);
 }
 
 /*Método que consulta la propiedad size del carrito
@@ -46,19 +44,17 @@ void Carrito::agregarProducto(ProductoCarrito prodCarrito){
 Sin párametros
 Sin valor de retorno*/
 void Carrito::verCarrito(){
-    cout << "       CARRITO:"<<endl;
-    cout << endl;
-    cout << "Carrito de compras de " << this->cliente << endl;
-    cout << endl;
-    cout << "Id,nombre,precio,cantidad,subtotal" << endl;
+    cout << "CARRITO DE COMPRAS DE " << this->cliente.getNombre() << endl << endl;
+
+    cout << "| ID | NOMBRE | PRECIO | CANTIDAD | SUBTOTAL\n" << endl;
     if (this->size == 0){
-        cout << "  Carrito vacio" << endl;
+        cout << "Carrito vacio" << endl;
     }
+    
     else{
         for (int i = 0; i < this->size; i++){
-            cout << "  ";
             this->productos[i].mostrar();
-            cout << "\t\t\t$" << this->productos[i].subtotal() << endl;
+            cout << "$" << this->productos[i].subtotal() << endl;
         }
     }
 }
@@ -127,6 +123,10 @@ void Carrito::vaciarCarrito(){
     this->size = 0;
 }
 
+int Carrito::consultaPrecioProducto(int indice){
+    return this->productos[indice].getPrecio();
+}
+
 /*Método que suma los subtotales de cada producto del carrito
 Sin párametros
 Valor de retorno: precio total del carrito*/
@@ -136,6 +136,14 @@ double Carrito::total(){
         totalNeto += this->productos[i].subtotal();
     }
     return totalNeto;
+}
+
+string Carrito::consultaNombreProducto(int indice){
+    return this->productos[indice].getNombre();
+}
+
+ProductoCarrito Carrito::getProducto(int indice){
+    return this->productos[indice];
 }
 
 /*Método que identifica la posición del producto a eliminar y empieza a recorrer hacia atrás los productos despues de este,

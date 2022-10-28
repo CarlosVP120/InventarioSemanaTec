@@ -47,6 +47,13 @@ void Almacen::verProductos(){
     }
 }
 
+void Almacen::imprimeVertical(){
+    cout << "| ID | PRODUCTO | PRECIO | CANTIDAD |\n" << endl;
+    for(int i = 0; i < this->size; i = i + 1) {
+        cout << "| "  << this->productos[i].getId() << " | " << this->productos[i].getNombre() << " | $" << this->productos[i].getPrecio() << " | " << this->productos[i].getExistencia() << endl;
+    }
+}
+
 /*Método que verifica si el producto con el id ingresado existe en el almacén y si su cantidad es válida
 Parámetros:
 id: id ingresado por el usuario
@@ -120,6 +127,17 @@ bool Almacen::editarCarrito(string id, int cant, Carrito &carrito1){
     return bandera;
 }
 
+int Almacen::buscarIndice(string id){
+    int indice = -1;
+    for (int i = 0; i < this->size; i++){
+        if (this->productos[i].verificaId(id)){
+            indice = i;
+            break;
+        }
+    }
+    return indice;
+}
+
 /*Método para descontar de la existencia en almacén, la cantidad de artículos de cada producto en el carrito
 Parámetros:
 id: id del producto puesto en el carrito
@@ -132,6 +150,10 @@ void Almacen::descuentaArticulo(string id, int cantDesc){
             break;
         }
     }
+}
+
+ProductoAlmacen Almacen::getProducto(int indice){
+    return this->productos[indice];
 }
 
 /*Método que muestra el total a pagar y vacía el carrito
@@ -147,7 +169,7 @@ void Almacen::pagarCarrito(Carrito &carrito1){
         descuentaArticulo(id, cantDesc);
     }
     cout << "Total a pagar: $" << carrito1.total() << endl;
-    cout << "-------------------"<<endl;
+    cout << "- - - - - - - - - - - - -"<<endl;
     cout << "Su pago ha sido realizado" << endl;
     carrito1.vaciarCarrito();
 }
